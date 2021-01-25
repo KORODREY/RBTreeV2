@@ -19,49 +19,49 @@ class RBTree {
 
     Node *root; // корень дерева
 
-    Node *Sibling(Node *node) const;
+    Node *Sibling(Node *node) const; // получение брата узла
 
-    void RotateLeft(Node *node);
-    void RotateRight(Node *node);
+    void RotateLeft(Node *node); // левый поворот
+    void RotateRight(Node *node); // правый поворот
 
-    void FixInsertion(Node *node);
-    void FixRemoving(Node *node);
+    void FixInsertion(Node *node); // корректировка узла для удовлетворения всех свойств красно-чёрного дерева после вставки
+    void FixRemoving(Node *node); // корректировка узла для удовлетворения всех свойств красно-чёрного дерева после удаления
 
-    Node *FindNode(const T& value) const;
-    void RemoveNode(Node *node);
+    Node *FindNode(const T& value) const; // поиск узла с заданным значением
+    void RemoveNode(Node *node); // удаление узла node
 
-    void Copy(Node *node, Node* &newNode);
-    void Clear(Node* &node);
+    void Copy(Node *node, Node* &newNode); // копирование дерева
+    void Clear(Node* &node); // очистка дерева
 
-    int GetSize(Node *node) const;
+    int GetSize(Node *node) const; // количество элементов в дереве
 
-    void PreOrder(std::ostream &os, Node *node) const;
-    void InOrder(std::ostream &os, Node *node) const;
-    void PostOrder(std::ostream &os, Node *node) const;
+    void PreOrder(std::ostream &os, Node *node) const; // прямой порядок вывода
+    void InOrder(std::ostream &os, Node *node) const; // центрированный порядок вывода
+    void PostOrder(std::ostream &os, Node *node) const; // обратный порядок вывода
 
 public:
-    RBTree();
-    RBTree(const RBTree& tree);
+    RBTree(); // констр.
+    RBTree(const RBTree& tree); // конструктор копирования
 
-    RBTree& operator=(const RBTree& tree);
+    RBTree& operator=(const RBTree& tree); // оператор присваивания
 
-    void Insert(const T& value);
-    bool Remove(const T& value);
-    bool Find(const T& value) const;
+    void Insert(const T& value); // вставка
+    bool Remove(const T& value); // удаление
+    bool Find(const T& value) const; // поиск
 
-    int GetSize() const;
+    int GetSize() const; // количество элементов
 
     void PreOrder(std::ostream &os) const;
     void InOrder(std::ostream &os) const;
     void PostOrder(std::ostream &os) const;
 
-    ~RBTree();
+    ~RBTree(); // деструктор 
 
     template <typename T1>
-    friend std::ostream& operator<<(std::ostream &os, const RBTree<T1>& tree);
+    friend std::ostream& operator<<(std::ostream &os, const RBTree<T1>& tree); // оператор вывода в поток
 
     template <typename T1>
-    friend std::istream& operator>>(std::istream &is, RBTree<T1>& tree);
+    friend std::istream& operator>>(std::istream &is, RBTree<T1>& tree); // оператор ввода из потока
 };
 
 template <typename T>
