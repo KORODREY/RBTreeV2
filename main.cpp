@@ -4,7 +4,8 @@
 
 using namespace std;
 
-// вывод дерева
+// main для интового дерева
+// вывод дерева 
 void PrintTree(RBTree<int> &tree) {
     if (tree.GetSize() == 0) {
         cout << "(empty)" << endl;
@@ -99,7 +100,7 @@ int main() {
     setlocale(LC_ALL, "Russian");
 
     int item;
-    RBTree<int> tree; // создаём дерево
+    RBTree<int> tree; // создаём интовое дерево
 
     do {
         cout << endl << "Что будем делать?" << endl;
