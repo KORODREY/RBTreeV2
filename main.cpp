@@ -1,9 +1,10 @@
-﻿#include <iostream>
+#include <iostream>
 #include <fstream>
 #include "RBTree.hpp"
 
 using namespace std;
 
+// вывод дерева
 void PrintTree(RBTree<int> &tree) {
     if (tree.GetSize() == 0) {
         cout << "(empty)" << endl;
@@ -22,12 +23,14 @@ void PrintTree(RBTree<int> &tree) {
     cout << endl;
 }
 
+// ввод дерева
 void ReadTree(RBTree<int> &tree) {
     cout << "Введите значения: ";
-    cin >> tree;
+    cin >> tree; // считываем дерево
     cin.clear();
 }
 
+// вставка в дерево
 void InsertTree(RBTree<int> &tree) {
     int value;
     cout << "Введите значение: ";
@@ -37,6 +40,7 @@ void InsertTree(RBTree<int> &tree) {
     cout << "Готово!" << endl;
 }
 
+// поиск в дереве
 void FindInTree(RBTree<int> &tree) {
     int value;
     cout << "Число для поиска: ";
@@ -50,6 +54,7 @@ void FindInTree(RBTree<int> &tree) {
     }
 }
 
+// удаление элемента
 void RemoveInTree(RBTree<int> &tree) {
     int value;
     cout << "Число для удаления: ";
@@ -64,28 +69,28 @@ void RemoveInTree(RBTree<int> &tree) {
 }
 
 void SaveToFile(RBTree<int> &tree) {
-    char path[100];
+    char path[100]; // путь к файлу
     cout << "Путь к файлу: ";
     cin >> path;
 
-    ofstream f(path);
-    f << tree;
+    ofstream f(path); // создаём файл
+    f << tree; // выводим дерево
     f.close();
 }
 
 void LoadFromFile(RBTree<int> &tree) {
-    char path[100];
+    char path[100]; // путь к файлу
     cout << "Путь к файлу: ";
     cin >> path;
 
-    ifstream f(path);
+    ifstream f(path); // создаём файл
 
     if (!f) {
         cout << "Какие-то проблемы с файлом '" << path << "'" << endl;
         return;
     }
 
-    f >> tree;
+    f >> tree; // считываем дерево
     f.close();
 }
 
@@ -94,7 +99,7 @@ int main() {
     setlocale(LC_ALL, "Russian");
 
     int item;
-    RBTree<int> tree;
+    RBTree<int> tree; // создаём дерево
 
     do {
         cout << endl << "Что будем делать?" << endl;
